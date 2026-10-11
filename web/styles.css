@@ -1,0 +1,165 @@
+:root {
+  color-scheme: dark;
+  --base: #0d1112;
+  --raised: #171b1d;
+  --text: #e5ebec;
+  --muted: #a0aaad;
+  --border-width: 0.5px;
+  --line: rgb(100 116 122/0.8);
+  --accent: #81cedf;
+  --radius: 8px;
+  --space: 16px;
+  font:
+    16px/1.5 system-ui,
+    sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--base);
+  color: var(--text);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space);
+  padding: 20px 32px;
+  border-bottom: var(--border-width) solid var(--line);
+}
+header span,
+p {
+  color: var(--muted);
+}
+main {
+  max-width: 1120px;
+  padding: 32px;
+  margin: auto;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space);
+}
+h1 {
+  font-size: 32px;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: 20px;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: var(--text);
+  background: var(--raised);
+  border: var(--border-width) solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+}
+button {
+  cursor: pointer;
+  min-height: 44px;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+[aria-pressed="true"] {
+  color: var(--accent);
+}
+#tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+#summary {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space);
+}
+#summary article,
+#records article {
+  padding: 20px;
+  border: var(--border-width) solid var(--line);
+  border-radius: var(--radius);
+}
+#summary strong {
+  display: block;
+  font-size: 28px;
+}
+#records {
+  display: grid;
+  gap: 8px;
+}
+#records article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space);
+}
+dialog {
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  background: var(--raised);
+  color: var(--text);
+  border: var(--border-width) solid var(--line);
+  border-radius: var(--radius);
+  padding: 0;
+}
+dialog::backdrop {
+  background: rgb(0 0 0/0.7);
+}
+#fields,
+dialog footer {
+  padding: 24px;
+  display: grid;
+  gap: var(--space);
+}
+label {
+  display: grid;
+  gap: 6px;
+}
+textarea {
+  min-height: 90px;
+}
+#error {
+  padding: 0 24px;
+  color: var(--accent);
+}
+@media (max-width: 650px) {
+  header {
+    padding: 16px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  main {
+    padding: 16px;
+  }
+  #summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heading {
+    align-items: flex-start;
+  }
+  .heading h1 {
+    margin: 0;
+  }
+  #records article {
+    align-items: flex-start;
+  }
+  dialog header {
+    padding: 16px;
+  }
+}

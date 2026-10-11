@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="workspace-token" content="WORKSPACE_TOKEN" />
+    <title>Agency workspace</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.mjs"></script>
+  </head>
+  <body>
+    <header>
+      <strong id="brand">Agency workspace</strong
+      ><span>Private on this computer · email transport unavailable</span>
+    </header>
+    <main>
+      <section class="heading">
+        <div>
+          <h1>Daily work</h1>
+          <p>
+            Move from a relationship to a scoped project and a clear handover.
+          </p>
+        </div>
+        <button id="refresh">Refresh records</button>
+      </section>
+      <p id="status" role="status">Loading workspace…</p>
+      <section id="summary" aria-label="Work summary"></section>
+      <nav id="tabs" aria-label="Records"></nav>
+      <section class="heading">
+        <h2 id="list-title">Tasks</h2>
+        <button id="new">New record</button>
+      </section>
+      <section id="records" aria-live="polite"></section>
+    </main>
+    <dialog id="editor">
+      <form>
+        <header>
+          <h2 id="editor-title">Record</h2>
+          <button type="button" id="close">Close</button>
+        </header>
+        <div id="fields"></div>
+        <p id="error" role="alert"></p>
+        <footer><button id="save">Save record</button></footer>
+      </form>
+    </dialog>
+  </body>
+</html>

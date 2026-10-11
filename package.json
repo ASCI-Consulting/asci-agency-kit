@@ -1,0 +1,55 @@
+{
+  "name": "@asci-consulting/agency-kit",
+  "version": "0.1.0",
+  "description": "Evidence-conscious relationship, task and delivery contracts with a local SQLite CLI.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "asci": "./bin/asci.mjs"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "web",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "DESIGN.md"
+  ],
+  "scripts": {
+    "build": "node bin/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:coverage": "node --experimental-test-coverage --test-coverage-include=\"bin/{store,server}.mjs\" --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80 --test tests/*.test.mjs",
+    "pack:check": "node bin/pack-check.mjs",
+    "prepack": "npm run build",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.0",
+    "@playwright/test": "1.63.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ASCI-Consulting/asci-agency-kit.git"
+  },
+  "homepage": "https://github.com/ASCI-Consulting/asci-agency-kit#readme",
+  "bugs": {
+    "url": "https://github.com/ASCI-Consulting/asci-agency-kit/issues"
+  }
+}
